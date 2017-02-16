@@ -119,6 +119,7 @@ var helper = (function() {
                             document.getElementById('formCheck').action = "schueler";
                         }
                     }
+                    // TEST
                     else typee = 'Professor';
                     console.log(typee);
                     if(document.getElementById('formCheck')) {
