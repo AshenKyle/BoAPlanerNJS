@@ -1,0 +1,122 @@
+<!--
+
+/*
+ *
+ * Copyright 2015 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+-->
+<% var bg = Math.floor((Math.random() * 6) + 1); %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BoringToAwesome - Schüler</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+  <script src="javascripts/GoogleLogin-LoggedIn.js"></script>
+  <link rel='stylesheet' href='stylesheets/bootstrap.min.css' />
+  <link rel='stylesheet' href='stylesheets/style.css' />
+  <link rel="shortcut icon" href="images/boaw.ico" />
+  <meta name="google-signin-client_id" content="160617789504-s14adttjtr9uvaf27sb5nb64kdc5tmpc.apps.googleusercontent.com"></meta>
+
+  <style type="text/css">
+    body{  background: url(images/<%= bg %>.jpg) no-repeat fixed center; }
+   .s{ height: <%= jumbotronheight %>px }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div id="authOps">
+    <div class="jumbotron s">
+      <div class="col-md-12" style="min-height: 60px;">
+        <div class="col-md-4">
+          <div id="profileimg"></div>
+          <div class="col-md-10" style="padding-left: 20px">
+            <div id="profile"></div>
+            <div id="profilemail"></div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <%= dateNow %> <br> <%= wochentag %>
+        </div>
+        <div class="col-md-4 text-right">
+          <button id="signOut" onclick="auth2.signOut();location.href='/'">Ausloggen</button>
+             <!-- <br>
+              <button id="disconnect" >Disconnect from Boaw</button> -->
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr class="hr">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Home</li>
+      </ol>
+
+      <div class="col-md-12">
+          <div class="well">
+          <h1 class="text-center">News-Feed</h1>
+
+          <p style="text-align: center">Das Wetter in der kommenden Woche soll sehr sonnig sein und eignet sich sehr für Schwimmausflüge und Sportaktivitäten.</p>
+
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <h1 class="text-center">Meine Kurse</h1><br>
+        <% for(var daten in kurse){ %>
+        <div class="col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><%= kurse[daten].kBezeichnung %></div>
+            <div class="panel-body">
+              <div class="text-center">
+                <small><%= kurse[daten].twochentag %> <%= kurse[daten].tdatum%></small>
+                <br>
+                <small><%= kurse[daten].ZeitAnfang %> - <%= kurse[daten].ZeitEnde %></small>
+                <br>
+                <small><%= kurse[daten].kBeschreibung %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <div class="col-md-12">
+        <br>
+        <h1 class="text-center">Angebotene Kurse</h1><br>
+        <% for(var daten in angeboteneKurse){ %>
+        <div class="col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><%= angeboteneKurse[daten].kBezeichnung %></div>
+            <div class="panel-body">
+              <div class="text-center">
+                <small><%= angeboteneKurse[daten].twochentag %> <%= angeboteneKurse[daten].tdatum%></small>
+                <br>
+                <small><%= angeboteneKurse[daten].ZeitAnfang %> - <%= angeboteneKurse[daten].ZeitEnde%></small>
+                <br>
+                <small><%= angeboteneKurse[daten].kBeschreibung %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+</body>
+</html>

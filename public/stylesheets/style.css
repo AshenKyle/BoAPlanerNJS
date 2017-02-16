@@ -1,0 +1,48 @@
+.jumbotron {
+  font: 16px Avenir Book, sans-serif;
+  text-align: center;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.88);
+  min-height: 500px;
+}
+
+.a{
+  background-color: rgba(224, 230, 255, 0.88);
+}
+
+.s {
+  margin-top: 15px;
+  text-align: start;
+  min-height: 600px;
+}
+
+.n{
+  margin: 30px;
+  margin-top: 11%;
+  transition: 200ms;
+}
+
+.n:hover{
+  transition: 200ms;
+  color: #6b6b6b;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+body{
+  background-size: cover;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.hr{
+  min-height: 3px;
+  max-width: 92%;
+  border-radius: 2px;
+  background-color: #000000;
+}
+
+#textarea {
+  resize: vertical;
+}

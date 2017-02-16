@@ -1,0 +1,80 @@
+<!--
+
+/*
+ *
+ * Copyright 2015 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+-->
+<% var bg = Math.floor((Math.random() * 6) + 1); %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BoringToAwesome</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+  <script src="javascripts/GoogleLogin-LoggedIn.js"></script>
+  <link rel='stylesheet' href='stylesheets/bootstrap.min.css' />
+  <link rel='stylesheet' href='stylesheets/style.css' />
+  <link rel="shortcut icon" href="images/boaw.ico" />
+  <meta name="google-signin-client_id" content="160617789504-s14adttjtr9uvaf27sb5nb64kdc5tmpc.apps.googleusercontent.com"></meta>
+
+  <style type="text/css">
+    body{  background: url(images/<%= bg %>.jpg) no-repeat fixed center; }
+    .s{ height: 1000px }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div id="authOps">
+    <div class="jumbotron s">
+      <div class="col-md-12" style="min-height: 60px;">
+        <div class="col-md-4">
+          <div id="profileimg"></div>
+          <div class="col-md-10" style="padding-left: 20px">
+            <div id="profile"></div>
+            <div id="profilemail"></div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <%= dateNow %> <br> <%= wochentag %>
+        </div>
+        <div class="col-md-4 text-right">
+          <button id="signOut" onclick="auth2.signOut();location.href='/'">Sign Out</button>
+          <br>
+          <button id="disconnect" >Disconnect from this app</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr class="hr">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="schueler">Home</a></li>
+        <li class="breadcrumb-item active">Kurs</li>
+      </ol>
+      <div class="col-md-12">
+        <h1 class="text-center"><%= kurs[0].kBezeichnung %></h1><br>
+          <div class="well" style="text-align: center;">kurs[0].kBeschreibung</div>
+          <h3 class="text-center"><%= kurs[0].tdatum %></h3><br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+</body>
+</html>
